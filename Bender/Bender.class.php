@@ -33,8 +33,7 @@ class Bender
         }
         foreach ( $src as $s )
         {
-            $ext = $this->get_ext( $s );
-            switch ( $ext )
+            switch ( $this->get_ext( $s ) )
             {
                 case "css":
                     $_stylesheets[] = $s;
@@ -87,7 +86,7 @@ class Bender
                         break;
                     case "jshrink":
                         require_once realpath( dirname( __file__ ) ) . "/JShrink.class.php";
-                        $packed = JShrink::minify( $str );
+                        $packed = Minifier::minify( $str );
                         break;
                     default:
                         $packed = $str;
@@ -100,8 +99,7 @@ class Bender
     public function output( $output )
     {
         global $_javascripts, $_stylesheets;
-        $ext = strtolower( pathinfo( $output, PATHINFO_EXTENSION ) );
-        switch ( $ext )
+        switch ( $this->get_ext( $output ) )
         {
             case "css":
                 $this->minify( $_stylesheets, "css", $output );
