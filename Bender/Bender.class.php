@@ -11,15 +11,15 @@
 class Bender
 {
     // CSS minifier
-    var $cssmin = "cssmin";
+    public $cssmin = "cssmin";
     // JS minifier, can be "packer" or "jshrink"
-    var $jsmin = "packer";
+    public $jsmin = "packer";
     // Packed file time to live in sec (-1 = never recompile, 0 = always recompile, default: 3600)
-    var $ttl = 3600;
+    public $ttl = 3600;
     // Project's root dir
-    var $root_dir;
+    public $root_dir;
     // Constructor
-    public function Bender()
+    public function __construct()
     {
         $this->root_dir = defined( ROOT_DIR ) ? ROOT_DIR : $_SERVER['DOCUMENT_ROOT'];
     }
