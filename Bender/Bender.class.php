@@ -21,7 +21,7 @@ class Bender
     // Constructor
     public function __construct()
     {
-        $this->root_dir = defined( ROOT_DIR ) ? ROOT_DIR : $_SERVER['DOCUMENT_ROOT'];
+        $this->root_dir = defined( 'ROOT_DIR' ) ? ROOT_DIR : $_SERVER['DOCUMENT_ROOT'];
     }
     // Enqueue CSS or Javascript
     public function enqueue( $src )
@@ -45,7 +45,7 @@ class Bender
         }
     }
     // Minify CSS / Javascripts and write output
-    private function minify( $scripts, $ext, $output )
+    protected function minify( $scripts, $ext, $output )
     {
         $path = $this->root_dir();
         $outfile = "{$path}/{$output}";
@@ -112,12 +112,12 @@ class Bender
         }
     }
     // Get root dir
-    private function root_dir()
+    protected function root_dir()
     {
         return $this->root_dir;
     }
     // Join array of files into a string
-    private function join_files( $files )
+    protected function join_files( $files )
     {
         $path = $this->root_dir();
         if ( !is_array( $files ) )
@@ -132,7 +132,7 @@ class Bender
         return $c;
     }
     // Get extension in lowercase
-    private function get_ext( $src )
+    protected function get_ext( $src )
     {
         return strtolower( pathinfo( $src, PATHINFO_EXTENSION ) );
     }
