@@ -39,7 +39,6 @@ function smarty_function_bender( $params, &$smarty )
     $bender = new Bender();
     $src = isset( $params['src'] ) ? $params['src'] : "";
     $output = isset( $params['output'] ) ? $params['output'] : "";
-    $root_dir = defined( ROOT_DIR ) ? ROOT_DIR : $_SERVER['DOCUMENT_ROOT'];
     // enqueue javascript or css
     if ( $src )
     {
