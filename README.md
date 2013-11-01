@@ -4,9 +4,8 @@ Bender is written in pure PHP and can be used even on very restricted shared hos
 
 Project description, instructions and updates: http://www.esiteq.com/projects/bender/
 
-<b>Changelog</b>
+<h3>Changelog</h3>
 
 Friday, November 1, 2013
-
 - Changed a way to check if recombination / minification is required. Now it recombines / minimizes css and javascript files only if one of original
   files were changes, instead of forced compilation of all scripts based on time-to-live
